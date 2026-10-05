@@ -8,7 +8,7 @@ export const capabilities = [
   { title: 'Digital productivity', icon: PanelsTopLeft, description: 'Using everyday digital tools to organize tasks, manage documents, and collaborate more effectively.', detail: 'Document creation · Task organization · Collaboration tools' },
 ];
 export function pageHead(title: string, description: string) {
-  return { meta: [{ title: `${title} — Aarush Dadhwal | BCom Student` }, { name: 'description', content: description }, { property: 'og:title', content: `${title} — Aarush Dadhwal | BCom Student` }, { property: 'og:description', content: description }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }] };
+  return { meta: [{ title: `${title} — ${student.name} | BCom Student` }, { name: 'description', content: description }, { property: 'og:title', content: `${title} — ${student.name} | BCom Student` }, { property: 'og:description', content: description }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }] };
 }
 export function prepareEmail(name: string, email: string, subject: string, message: string) {
   return `mailto:${student.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hello Aarush,\n\n${message}\n\nFrom: ${name}\nEmail: ${email}`)}`;
