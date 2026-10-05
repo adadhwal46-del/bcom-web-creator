@@ -4,9 +4,9 @@ import { prepareEmail } from '@/lib/portfolio';
 describe('Contact email preparation', () => {
   it('prepares a draft for the approved sample student without submitting it', () => {
     const draft = prepareEmail('Sam Lee', 'sam@example.com', 'Student project & research', 'Could we collaborate on business research?');
-    expect(draft.split('?')[0]).toBe('mailto:alex.morgan@example.com');
+    expect(draft.split('?')[0]).toBe('mailto:aarush.dadhwal@example.com');
     const params = new URLSearchParams(draft.split('?')[1]);
     expect(params.get('subject')).toBe('Student project & research');
-    expect(params.get('body')).toBe('Hello Alex,\n\nCould we collaborate on business research?\n\nFrom: Sam Lee\nEmail: sam@example.com');
+    expect(params.get('body')).toBe('Hello Aarush,\n\nCould we collaborate on business research?\n\nFrom: Sam Lee\nEmail: sam@example.com');
   });
 });
