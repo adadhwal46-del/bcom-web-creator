@@ -8,3 +8,9 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Portfolio architecture
+- Keep student content and email preparation in the browser-safe portfolio module so the four public routes use a single editable source of truth.
+- Use root-level shared navigation and footer around Outlet, with one content route per portfolio page, so navigation and page metadata remain independent.
+- Contact prepares a mailto draft without network submission or persistence, keeping the informational portfolio honest about message delivery.
+- Define portfolio styling and semantic colors in the global stylesheet and use existing UI controls so presentation stays consistent across pages.

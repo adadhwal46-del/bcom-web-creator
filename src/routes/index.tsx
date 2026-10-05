@@ -1,24 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight, ArrowUpRight, GraduationCap, BookOpen, Compass } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { capabilities, pageHead } from '@/lib/portfolio';
+import studyDesk from '@/assets/study-desk.jpg';
+export const Route = createFileRoute('/')({ head: () => pageHead('Home', 'Meet Alex Morgan, a first-year Bachelor of Commerce student exploring business, developing practical skills, and building a thoughtful career foundation.'), component: Index });
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+ return <main><section className="hero"><img src={studyDesk} alt="An organized study desk with a laptop, open notebook, and blue books by a campus window" width={1536} height={1024} className="hero-image" fetchPriority="high" /><div className="container-shell hero-inner reveal"><div className="eyebrow flex items-center gap-2"><span className="size-1.5 rounded-full bg-primary" /> First-year BCom student</div><h1 className="hero-title">Hi, I’m Alex.<br />Curious about business.<br /><span>Ready to grow.</span></h1><p className="hero-description">I’m a commerce student building a foundation in business, finance, and the skills that turn ideas into meaningful work.</p><div className="mt-8 flex flex-wrap gap-3"><Button asChild size="lg"><Link to="/about">Get to know me <ArrowRight /></Link></Button><Button asChild variant="outline" size="lg"><Link to="/contact">Let’s connect <ArrowUpRight /></Link></Button></div><p className="hero-note"><GraduationCap className="size-4" /> Bachelor of Commerce <span className="mx-1">·</span> Year 1 <span className="sample-tag ml-2">Sample profile</span></p></div></section><section className="focus-strip" aria-label="Academic focus"><div className="container-shell grid grid-cols-2 gap-x-5 md:grid-cols-3"><div className="focus-item"><GraduationCap /><div><strong>Learning with purpose</strong><span>Building strong business foundations</span></div></div><div className="focus-item"><BookOpen /><div><strong>Curiosity in action</strong><span>Exploring ideas beyond the classroom</span></div></div><div className="focus-item"><Compass /><div><strong>A growth mindset</strong><span>One new skill, one step at a time</span></div></div></div></section><section className="section-space"><div className="container-shell"><div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p className="eyebrow">What I bring</p><h2 className="section-title">Small skills. Strong foundations.</h2><p className="body-copy mt-3">Developing practical capabilities for the world of business.</p></div><Button asChild variant="link" className="self-start px-0 sm:self-auto"><Link to="/services">Explore all capabilities <ArrowRight /></Link></Button></div><div className="mt-8 grid gap-5 md:grid-cols-3">{capabilities.slice(0, 3).map(skill => <article className="skill-card" key={skill.title}><div className="skill-icon"><skill.icon /></div><h3>{skill.title}</h3><p>{skill.description}</p></article>)}</div></div></section><section className="border-t border-border bg-secondary"><div className="container-shell flex flex-col justify-between gap-6 py-12 sm:flex-row sm:items-center"><div><h2 className="text-2xl font-bold">Good conversations open new doors.</h2><p className="body-copy mt-2">Let’s talk about learning, collaboration, or a new opportunity.</p></div><Button asChild><Link to="/contact">Get in touch <ArrowUpRight /></Link></Button></div></section></main>;
 }
