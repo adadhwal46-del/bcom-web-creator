@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { pageHead, student, prepareEmail } from '@/lib/portfolio';
-export const Route = createFileRoute('/contact')({ head: () => pageHead('Contact', 'Start a conversation with Alex Morgan about learning, student collaborations, or early career opportunities. Sample contact details.'), component: Contact });
+export const Route = createFileRoute('/contact')({ head: () => pageHead('Contact', 'Start a conversation with Aarush Dadhwal about learning, student collaborations, or early career opportunities. Sample contact details.'), component: Contact });
 function Contact() {
  const [draft, setDraft] = useState<string | null>(null);
  function submit(event: FormEvent<HTMLFormElement>) { event.preventDefault(); const form = new FormData(event.currentTarget); setDraft(prepareEmail(String(form.get('name')), String(form.get('email')), String(form.get('subject')), String(form.get('message')))); }
