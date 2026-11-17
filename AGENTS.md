@@ -14,3 +14,4 @@
 - Use root-level shared navigation and footer around Outlet, with one content route per portfolio page, so navigation and page metadata remain independent.
 - Contact prepares a mailto draft without network submission or persistence, keeping the informational portfolio honest about message delivery.
 - Define portfolio styling and semantic colors in the global stylesheet and use existing UI controls so presentation stays consistent across pages.
+- Keep GitHub public-repository reads behind a server function, returning only allowlisted public metadata to the homepage.
