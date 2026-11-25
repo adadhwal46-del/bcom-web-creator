@@ -15,3 +15,4 @@
 - Contact prepares a mailto draft without network submission or persistence, keeping the informational portfolio honest about message delivery.
 - Define portfolio styling and semantic colors in the global stylesheet and use existing UI controls so presentation stays consistent across pages.
 - Use Lovable's project Git sync for source-code repositories; never display repository listings on the student portfolio unless requested.
+- Keep sign-up and sign-in on a public `/auth` page and derive shared header account controls from one root auth-state listener, so the portfolio remains public without storing profile records.
